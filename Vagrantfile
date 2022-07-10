@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
   ### PIPELINES COMPONENT ###
   ###########################
 
-  config.vm.define :ci_server do |server|
+  config.vm.define :gofer_remote_server do |server|
 #   server.vm.box = "bento/centos-6.10"
 #   server.vm.box = "clouddood/RH7.5_baserepo"
     server.vm.box = "clouddood/RH7.9_infra"
@@ -77,7 +77,7 @@ Vagrant.configure("2") do |config|
 
     server.vm.provision "ansible" do |ansible|
 #     ansible.playbook = "deploy_gocd.yml"
-      ansible.playbook = "deploy_gocdRH7_server_DEV.local.yml"
+      ansible.playbook = "deploy_gofer_remote_server.yml"
       ansible.inventory_path = "vagrant_hosts"
 #     ansible.tags = ansible_tags
 #     ansible.verbose = ansible_verbosity
